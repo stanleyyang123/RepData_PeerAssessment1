@@ -8,9 +8,7 @@ Load data using fread() from "data.table" package
 library(data.table)
 data <- fread("activity.csv", header=TRUE, sep=",")
 ```
-Preprocess data:  
-a.remove all NA value  
-b. convert date column into date class
+Preprocess data:  remove all NA value  
 
 ```r
 complete <- complete.cases(data)
@@ -117,7 +115,7 @@ subset(interval$interval, interval$steps==max(interval$steps))
 ```
 
 
-## Imputing missing values
+## Inputing missing values
 1. Count missing values
 
 ```r
@@ -230,14 +228,14 @@ median(totalsteps_all$steps)
 ```
 ## [1] 10766.19
 ```
-These values are the same from the estimates from the first part. In this case, the inputing missing data didn't affect the estimates of the total daily number of steps. It may also have something to do with the strategy of inputing missing data. 
+These values are almost the same from the estimates from the first part. In this case, the inputing missing data didn't affect the estimates of the total daily number of steps. It may also have something to do with the strategy of inputing missing data. 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.  
 a. Strip time value from the total data set, data_all, and use weekdays() for conversion, store weekday value into a new variable, weekday.  
 b. Generate another new varible to store a binary logical vector indicating if a specific day is weekday.  
 c. Covert this binary logical vector into a two-level factor vector with "Weekdays" or "Weekends" label.  
-d. Assign this factor vector to the total data set, data_all
+d. Assign this factor vector to the total data set, data_all  
 
 
 ```r
@@ -247,6 +245,7 @@ isweekday<-weekday %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
 fac_weekday <- factor(isweekday, levels=c(TRUE, FALSE), labels=c("Weekdays", "Weekends"))
 data_all$weekday<-fac_weekday
 ```
+
 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).  
 
 ```r

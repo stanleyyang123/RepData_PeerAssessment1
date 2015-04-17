@@ -60,7 +60,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <p>Load data using fread() from “data.table” package</p>
 <pre class="r"><code>library(data.table)
 data &lt;- fread(&quot;activity.csv&quot;, header=TRUE, sep=&quot;,&quot;)</code></pre>
-<p>Preprocess data:<br />a.remove all NA value<br />b. convert date column into date class</p>
+<p>Preprocess data: remove all NA value</p>
 <pre class="r"><code>complete &lt;- complete.cases(data)
 data_complete &lt;- data[complete,]
 class(data_complete)</code></pre>
@@ -119,8 +119,8 @@ head(interval)</code></pre>
 <pre class="r"><code>subset(interval$interval, interval$steps==max(interval$steps))</code></pre>
 <pre><code>## [1] 835</code></pre>
 </div>
-<div id="imputing-missing-values" class="section level2">
-<h2>Imputing missing values</h2>
+<div id="inputing-missing-values" class="section level2">
+<h2>Inputing missing values</h2>
 <ol style="list-style-type: decimal">
 <li>Count missing values</li>
 </ol>
@@ -185,7 +185,7 @@ head(totalsteps_all)</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 <pre class="r"><code>median(totalsteps_all$steps)</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
-<p>These values are the same from the estimates from the first part. In this case, the inputing missing data didn’t affect the estimates of the total daily number of steps. It may also have something to do with the strategy of inputing missing data.</p>
+<p>These values are almost the same from the estimates from the first part. In this case, the inputing missing data didn’t affect the estimates of the total daily number of steps. It may also have something to do with the strategy of inputing missing data.</p>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
