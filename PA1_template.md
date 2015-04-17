@@ -8,6 +8,7 @@ Load data using fread() from "data.table" package
 library(data.table)
 data <- fread("activity.csv", header=TRUE, sep=",")
 ```
+
 Preprocess data:  remove all NA value  
 
 ```r
